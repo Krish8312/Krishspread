@@ -1402,7 +1402,7 @@ class TelegramBotManager:
             )
         @self.dp.message(Command("auth_phone"))
         async def cmd_auth_phone(message: Message,command: CommandObject): 
-        """Auth via phone number"""
+            """Auth via phone number"""
     user = self.db.get_user(message.from_user.id)
     if not user:
         user = self.db.add_user(message.from_user.id)
