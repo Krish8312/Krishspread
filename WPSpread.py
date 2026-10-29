@@ -823,8 +823,8 @@ class WhatsAppManager:
         """Generate pairing code for phone number login"""
         async with self._lock:
             try:
-            if self.browser_context:
-                await self.browser_context.close()
+                if self.browser_context:
+                    await self.browser_context.close()
             
             user_data_dir = f"{USER_DATA_DIR}/user_{user_id}"
             os.makedirs(user_data_dir, exist_ok=True)
