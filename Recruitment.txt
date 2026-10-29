@@ -2,3 +2,6 @@ aiogram
 pydantic
 aiohttp
 requests
+playwright
+qrcode
+Pillow
