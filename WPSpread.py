@@ -821,8 +821,8 @@ class WhatsAppManager:
                 return None
     async def generate_pairing_code(self, user_id: int, phone_number: str) -> Optional[str]:
         """Generate pairing code for phone number login"""
-    async with self._lock:
-        try:
+        async with self._lock:
+            try:
             if self.browser_context:
                 await self.browser_context.close()
             
