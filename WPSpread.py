@@ -878,6 +878,34 @@ class WhatsAppManager:
         except Exception as e:
             logger.error(f"❌ Pairing code failed: {e}")
             return None
+                
+            
+            # Enter phone number
+            try:
+                phone_input = await self.page.wait_for_selector('input[type="text"]', timeout=10000)
+                await phone_input.fill(phone_number)
+                await self.page.wait_for_timeout(1000)
+                
+                next_btn = await self.page.wait_for_selector('text="Next"', timeout=10000)
+                await next_btn.click()
+                await self.page.wait_for_timeout(3000)
+            except:
+                return None
+            
+            # Get pairing code
+            try:
+                code_element = await self.page.wait_for_selector('text=/^[A-Z0-9]{8}$/', timeout=10000)
+                pairing_code = await code_element.inner_text()
+                logger.info(f"✅ Pairing Code generated: {pairing_code}")
+                
+                self._auth_tasks[user_id] = asyncio.create_task(self._monitor_login_headless(user_id, "pairing"))
+                return pairing_code
+            except:
+                return None
+                
+        except Exception as e:
+            logger.error(f"❌ Pairing code failed: {e}")
+            return None
             
     async def _monitor_login_headless(self, user_id: int, qr_path: str):
         """Monitor for WhatsApp login completion (HEADLESS MODE)"""
