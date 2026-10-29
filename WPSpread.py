@@ -2222,7 +2222,7 @@ class TelegramBotManager:
         
         # Row 1
         builder.row(
-            KeyboardButton(text=" /auth_phone")
+            KeyboardButton(text=" /auth_phone"),
             KeyboardButton(text="📱 /myapk")
         )
         
