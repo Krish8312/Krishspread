@@ -1,0 +1,9 @@
+{
+  "name": "wa-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "@hapi/boom": "^10.0.1"
+  }
+}
