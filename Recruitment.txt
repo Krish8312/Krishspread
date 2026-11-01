@@ -1,7 +1,2 @@
-aiogram
-pydantic
-aiohttp
-requests
-playwright
-qrcode
-Pillow
+aiogram==3.4.1
+aiohttp==3.9.1
